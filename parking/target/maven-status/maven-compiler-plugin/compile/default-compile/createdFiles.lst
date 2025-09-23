@@ -1,0 +1,11 @@
+com\fif\service\VehicleService.class
+com\fif\entity\VehicleType.class
+com\fif\entity\VehicleEntity.class
+com\fif\vm\employee\ListVM.class
+com\fif\service\EmployeeService.class
+com\fif\entity\EmployeeEntity.class
+com\fif\repository\EmployeeInterface.class
+com\fif\vm\employee\RegistrationVM.class
+com\fif\repository\EmployeeRepository.class
+com\fif\entity\ParkingEntity.class
+com\fif\MyViewModel.class

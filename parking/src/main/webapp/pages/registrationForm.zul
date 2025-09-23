@@ -1,0 +1,11 @@
+<window title="Employee Manager" border="normal" width="600px"
+        viewModel="@id('vm') @init('com.fif.vm.employee.RegistrationVM')">
+
+    <vlayout spacing="10px" style="padding:15px">
+        <textbox value="@bind(vm.employee.employeeNumber)" placeholder="Employee ID"/>
+        <textbox value="@bind(vm.employee.employeeName)" placeholder="Employee Name"/>
+        <textbox value="@bind(vm.employee.vehicle.vehicleType)" placeholder="Vehicle Type"/>
+        <textbox value="@bind(vm.employee.vehicle.licensePlate)" placeholder="Vehicle Plate"/>
+        <button label="Add Employee" onClick="@command('addEmployee')"/>
+    </vlayout>
+</window>

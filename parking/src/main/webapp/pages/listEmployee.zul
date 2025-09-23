@@ -1,0 +1,21 @@
+<window title="Employee List" border="normal" width="600px"
+        viewModel="@id('vm') @init('com.fif.vm.employee.ListVM')">
+
+    <listbox model="@load(vm.employees)" mold="paging" pageSize="5" width="100%">
+        <listhead>
+            <listheader label="Employee ID"/>
+            <listheader label="Employee Name"/>
+            <listheader label="Vehicle Type"/>
+            <listheader label="Plate Number"/>
+        </listhead>
+
+        <template name="model" var="emp">
+            <listitem>
+                <listcell label="@load(emp.employeeNumber)"/>
+                <listcell label="@load(emp.employeeName)"/>
+                <listcell label="@load(emp.vehicle.vehicleType)"/>
+                <listcell label="@load(emp.vehicle.licensePlate)"/>
+            </listitem>
+        </template>
+    </listbox>
+</window>
