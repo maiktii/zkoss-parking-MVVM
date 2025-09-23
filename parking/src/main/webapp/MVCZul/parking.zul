@@ -1,0 +1,69 @@
+<zk>
+    <window title="Navigation Pane" border="normal" width="100%">
+        <hlayout>
+            <!-- Sidebar Menu -->
+            <vlayout width="200px">
+                <button label="Registration" />
+                <button label="List" />
+                <button label="Parking" />
+            </vlayout>
+
+            <!-- Parking Detail -->
+            <vlayout>
+                <label value="Parking Detail" />
+                <grid>
+                    <rows>
+                        <row>
+                            <label value="Parking Address :" />
+                            <label value="Jl. Sudirman No. 123, Jakarta" />
+                        </row>
+                        <row>
+                            <label value="Capacity Unit for Motorcycle :" />
+                            <label value="100" />
+                        </row>
+                        <row>
+                            <label value="Capacity Unit for Car :" />
+                            <label value="50" />
+                        </row>
+                        <row>
+                            <label value="Available Parking slot for Motorcycle :" />
+                            <label value="80" />
+                        </row>
+                        <row>
+                            <label value="Available Parking slot for Car :" />
+                            <label value="40" />
+                        </row>
+                    </rows>
+                </grid>
+
+                <separator />
+                <grid>
+                    <rows>
+                        <row>
+                            <label value="Parking Address :" />
+                            <label value="Jl. Thamrin No. 456, Jakarta" />
+                        </row>
+                        <row>
+                            <label value="Capacity Unit for Motorcycle :" />
+                            <label value="150" />
+                        </row>
+                        <row>
+                            <label value="Capacity Unit for Car :" />
+                            <label value="70" />
+                        </row>
+                        <row>
+                            <label value="Available Parking slot for Motorcycle :" />
+                            <label value="120" />
+                        </row>
+                        <row>
+                            <label value="Available Parking slot for Car :" />
+                            <label value="60" />
+                        </row>
+                    </rows>
+                </grid>
+
+                <button label="Back" />
+            </vlayout>
+        </hlayout>
+    </window>
+</zk>

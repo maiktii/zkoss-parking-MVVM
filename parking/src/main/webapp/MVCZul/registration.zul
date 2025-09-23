@@ -1,0 +1,42 @@
+<zk>
+    <window title="Navigation Pane" border="normal" width="100%">
+        <hlayout>
+            <!-- Sidebar Menu -->
+            <vlayout width="200px">
+                <button label="Registration" />
+                <button label="List" />
+                <button label="Parking" />
+            </vlayout>
+
+            <!-- Registration Form -->
+            <vlayout>
+                <label value="Registration Form" />
+                <grid>
+                    <rows>
+                        <row>
+                            <label value="Employee Name :" />
+                            <textbox />
+                        </row>
+                        <row>
+                            <label value="Employee ID :" />
+                            <textbox />
+                        </row>
+                        <row>
+                            <label value="Vehicle Type :" />
+                            <textbox />
+                        </row>
+                        <row>
+                            <label value="Vehicle Registration Number :" />
+                            <textbox />
+                        </row>
+                    </rows>
+                </grid>
+
+                <hlayout>
+                    <button label="SUBMIT" />
+                    <button label="Back" />
+                </hlayout>
+            </vlayout>
+        </hlayout>
+    </window>
+</zk>

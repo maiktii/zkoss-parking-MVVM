@@ -1,0 +1,40 @@
+<zk>
+    <window title="Navigation Pane" border="normal" width="100%">
+        <hlayout>
+            <!-- Sidebar Menu -->
+            <vlayout width="200px">
+                <button label="Registration" />
+                <button label="List" />
+                <button label="Update" />
+            </vlayout>
+
+            <!-- List Kendaraan -->
+            <vlayout>
+                <label value="List Kendaraan" />
+                <listbox width="700px">
+                    <listhead>
+                        <listheader label="Employee Name" />
+                        <listheader label="Employee Number" />
+                        <listheader label="Vehicle Type" />
+                        <listheader label="Vehicle Registration Number" />
+                        <listheader label="Action" />
+                    </listhead>
+                    <listitem>
+                        <listcell label="John Doe" />
+                        <listcell label="EMP001" />
+                        <listcell label="Car" />
+                        <listcell label="B1234XYZ" />
+                        <listcell><button label="Delete" /></listcell>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Jane Smith" />
+                        <listcell label="EMP002" />
+                        <listcell label="Motorcycle" />
+                        <listcell label="B5678ABC" />
+                        <listcell><button label="Delete" /></listcell>
+                    </listitem>
+                </listbox>
+            </vlayout>
+        </hlayout>
+    </window>
+</zk>
