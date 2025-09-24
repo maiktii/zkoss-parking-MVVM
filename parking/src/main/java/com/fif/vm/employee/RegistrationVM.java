@@ -1,36 +1,62 @@
 package com.fif.vm.employee;
 
+import com.fif.dto.RegistrationDTO;
 import com.fif.entity.EmployeeEntity;
 import com.fif.entity.VehicleEntity;
-import com.fif.repository.EmployeeRepository;
+import com.fif.repository.EmployeeInterface;
+import com.fif.repository.impl.EmployeeRepository;
 import com.fif.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Messagebox;
 
+import java.util.List;
+
+@Component
 public class RegistrationVM {
 
-    private EmployeeEntity employee = new EmployeeEntity();
-    private VehicleEntity vehicle = new VehicleEntity();
+    private RegistrationDTO requestCreate;
 
     private EmployeeService employeeService;
+    private List<String> vehicleTypes;
 
-    public RegistrationVM() {
-        employeeService = new EmployeeService(new EmployeeRepository());
-        employee.setVehicle(vehicle); // link vehicle to employee
+//    public RegistrationVM(){
+//
+//    }
+
+    @Init
+    public void init() {
+        employeeService = (EmployeeService) SpringUtil.getBean("employeeService");
+        requestCreate = new RegistrationDTO(); // 🔥 initialize here
+        vehicleTypes = List.of("CAR", "MOTORCYCLE");
     }
 
-    public EmployeeEntity getEmployee() {
-        return employee;
+    public RegistrationDTO getRequestCreate() {
+        return requestCreate;
     }
 
-    // Command triggered by button
+    public void setRequestCreate(RegistrationDTO requestCreate) {
+        this.requestCreate = requestCreate;
+    }
+
+    public List<String> getVehicleTypes() {
+        return vehicleTypes;
+    }
+
     @Command
-    @NotifyChange("employee")
+    @NotifyChange("requestCreate")
     public void addEmployee() {
-        employeeService.createEmployee(employee);
-
-        // reset
-        employee = new EmployeeEntity();
-        employee.setVehicle(new VehicleEntity());
+        try {
+            employeeService.createEmployee(requestCreate);
+            requestCreate = new RegistrationDTO();
+        } catch (IllegalArgumentException e) {
+            Messagebox.show(e.getMessage(), "Error", Messagebox.OK, Messagebox.ERROR);
+        }
     }
 }

@@ -13,6 +13,22 @@
 		<description>ZK listener for session cleanup</description>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Enable webapp Scopes-->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    <!-- Spring Security Filters -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>

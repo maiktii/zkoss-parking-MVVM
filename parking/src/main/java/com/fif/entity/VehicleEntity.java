@@ -1,18 +1,29 @@
 package com.fif.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class VehicleEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private  String vehicleType;
     private  String licensePlate;
+
+
+    @OneToOne(mappedBy = "vehicle")
+    private EmployeeEntity employee;
+
+    @ManyToOne
+    @JoinColumn(name = "parking_id", referencedColumnName = "id")
+    private ParkingEntity parking;
 
     public VehicleEntity(){
 
     }
 
-    public VehicleEntity(String vehicleType, String licensePlate) {
-        this.vehicleType = vehicleType;
-        this.licensePlate = licensePlate;
-    }
 
     public void setVehicleType(String vehicleType) {
         this.vehicleType = vehicleType;
@@ -30,5 +41,11 @@ public class VehicleEntity {
         return licensePlate;
     }
 
+    public void setParking(ParkingEntity parking) {
+        this.parking = parking;
+    }
 
+    public ParkingEntity getParking() {
+        return parking;
+    }
 }

@@ -1,20 +1,31 @@
 package com.fif.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class EmployeeEntity {
-//    private int employeeId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    //    private int employeeId;
     private String employeeNumber;
 
     private String employeeName;
 
-    private  VehicleEntity vehicle;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
+    private VehicleEntity vehicle;
 
     public EmployeeEntity() {
     }
 
-    public EmployeeEntity(String employeeNumber, String employeeName, VehicleEntity vehicle){
-        this.employeeNumber = employeeNumber;
-        this.employeeName = employeeName;
-        this.vehicle = vehicle;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setEmployeeNumber(String employeeNumber){
