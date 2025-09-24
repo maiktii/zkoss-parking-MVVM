@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window title="Register" border="normal" width="350px" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.fif.vm.employee.RegisterVM')" mode="modal">
+
+        <vlayout spacing="10px" width="100%" style="text-align:center;">
+            <label value="Create New Account" style="font-weight:bold; font-size:16px;"/>
+
+            <!-- Username -->
+            <textbox placeholder="Username" value="@bind(vm.username)" width="100%"/>
+
+            <!-- Password -->
+            <textbox placeholder="Password" value="@bind(vm.password)" type="password" width="100%"/>
+
+            <!-- Confirm Password -->
+            <textbox placeholder="Confirm Password" value="@bind(vm.confirmPassword)" type="password" width="100%"/>
+
+            <!-- Register Button -->
+            <button label="Register" onClick="@command('doRegister')" width="100%"/>
+
+            <!-- Error Message -->
+            <label value="@bind(vm.errorMessage)" style="color:red; font-size:12px;"/>
+
+            <!-- Link to login -->
+            <hlayout spacing="5px">
+                <label value="Already have an account?"/>
+                <button label="Login" onClick='window.location.href="/pages/login.zul"'
+                        style="font-size:12px; padding:2px;"/>
+            </hlayout>
+        </vlayout>
+
+    </window>
+</zk>

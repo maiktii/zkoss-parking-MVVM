@@ -8,6 +8,7 @@ com\fif\repository\EmployeeInterface.class
 com\fif\MyViewModel.class
 com\fif\vm\employee\DashboardVM.class
 com\fif\service\AuthService.class
+com\fif\vm\employee\RegisterVM.class
 com\fif\service\UserService.class
 com\fif\entity\ParkingEntity.class
 com\fif\vm\employee\ListVM.class

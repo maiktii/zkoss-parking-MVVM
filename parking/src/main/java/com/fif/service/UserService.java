@@ -16,4 +16,8 @@ public class UserService {
         return authRepo.findByUsername(name).orElse(null);
     }
 
+    public void saveUser(AuthEntity request){
+        authRepo.save(request);
+    }
+
 }

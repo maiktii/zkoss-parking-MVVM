@@ -1,5 +1,5 @@
 <zk xmlns:h="native">
-    <window title="Login" border="normal" width="300px" height="500px" closable="false" position="center">
+    <window title="Login" border="normal" width="300px" height="500px" closable="false" position="center" apply="">
         <vlayout spacing="10px" hflex="min" vflex="min">
             <label value="Please login:"/>
             <!-- Use h:form to render native HTML form -->
@@ -21,6 +21,7 @@
                 </grid>
             </h:form>
             <label value="Invalid username or password" style="color: red;" visible="${param.error != null}"/>
+            <button label="Register" width="100%" onClick="@command('goToRegister')"/>
         </vlayout>
     </window>
 </zk>

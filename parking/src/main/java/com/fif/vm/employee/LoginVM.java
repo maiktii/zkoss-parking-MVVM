@@ -41,4 +41,9 @@ public class LoginVM {
             errorMessage = "Invalid username or password!";
         }
     }
+
+    @Command
+    public void goToRegister() {
+        Executions.sendRedirect("/pages/register.zul");
+    }
 }
