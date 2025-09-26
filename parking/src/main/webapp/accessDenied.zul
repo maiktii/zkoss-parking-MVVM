@@ -1,0 +1,39 @@
+<?page title="Access Denied" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:h="native">
+    <window border="none" width="100%" height="100%" closable="false" position="center">
+        <!-- Full-page center alignment -->
+        <vlayout width="100%" height="100%"
+                 style="display: flex; justify-content: center; align-items: center; background: #f8f9fa;">
+
+            <!-- Card Container -->
+            <vlayout width="400px" spacing="20px"
+                     style="border: 1px solid #ccc; border-radius: 12px; padding: 30px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+
+                <!-- Access Denied Icon -->
+                <h:div style="font-size: 80px; color: #e74c3c;">&#128683;</h:div>
+
+                <!-- Title -->
+                <label value="Access Denied"
+                       style="font-size: 24px; font-weight: bold; color: #e74c3c; margin-top: 10px;" />
+
+                <!-- Message -->
+                <label multiline="true"
+                       style="font-size: 16px; color: #555; margin-top: 5px;">
+                    You don’t have permission to access this page.
+                    Please contact your administrator if you believe this is a mistake.
+                </label>
+
+                <!-- Action Buttons -->
+                <hlayout spacing="15px" style="justify-content: center; margin-top: 20px;">
+                    <button label="Go Back"
+                            onClick='Executions.sendRedirect("/pages/dashboard.zul")'
+                            style="background: #3498db; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-size: 14px; cursor: pointer;" />
+
+                    <button label="Logout"
+                            onClick='Executions.sendRedirect("/pages/login.zul")'
+                            style="background: #e74c3c; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-size: 14px; cursor: pointer;" />
+                </hlayout>
+            </vlayout>
+        </vlayout>
+    </window>
+</zk>

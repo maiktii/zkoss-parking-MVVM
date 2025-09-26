@@ -40,11 +40,19 @@
                     <textbox value="@bind(vm.requestCreate.employeeName)" placeholder="Employee Name"
                              width="100%" style="padding:8px; border:1px solid #ccc; border-radius:4px;"/>
 
-                    <listbox model="@bind(vm.vehicleTypes)" selectedItem="@bind(vm.requestCreate.vehicleType)" mold="select" width="100%">
+<!--                    <listbox model="@bind(vm.vehicleTypes)" selectedItem="@bind(vm.requestCreate.vehicleType)" mold="select" width="100%">-->
+<!--                        <template name="model">-->
+<!--                            <listitem label="@load(each.name)" value="@load(each.id)" />-->
+<!--                        </template>-->
+<!--                    </listbox>-->
+
+                    <combobox model="@bind(vm.vehicleTypes)"
+                              selectedItem="@bind(vm.requestCreate.vehicleType)"
+                              width="100%" readonly="true">
                         <template name="model">
-                            <listitem label="@load(each)" value="@load(each)" />
+                            <comboitem label="@load(each.name)" value="@load(each)" />
                         </template>
-                    </listbox>
+                    </combobox>
 
 
                     <!--                    <combobox model="@bind(vm.vehicleTypes)" selectedItem="@bind(vm.requestCreate.vehicleType)" width="100%" style="padding:8px; border:1px solid #ccc; border-radius:4px;">-->

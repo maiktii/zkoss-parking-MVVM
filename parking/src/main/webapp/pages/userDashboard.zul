@@ -13,15 +13,6 @@
         <west size="220px" collapsible="true" splittable="true"
               style="background:#ecf0f1; padding:20px;">
             <vlayout spacing="15px">
-                <button label="🏠 Dashboard" width="100%"
-                        style="background:#3498db; color:white; border:none; border-radius:4px;"
-                        onClick='Executions.sendRedirect("dashboard.zul")'/>
-                <button label="👥 Employee List" width="100%"
-                        style="background:#2ecc71; color:white; border:none; border-radius:4px;"
-                        onClick='Executions.sendRedirect("listEmployee.zul")'/>
-                <button label="➕ Registration" width="100%"
-                        style="background:#e67e22; color:white; border:none; border-radius:4px;"
-                        onClick='Executions.sendRedirect("registrationForm.zul")'/>
                 <button label="🚪 Logout" width="100%"
                         style="background:#e74c3c; color:white; border:none; border-radius:4px; margin-top:auto;"
                         onClick='Executions.sendRedirect("login.zul")'/>

@@ -15,7 +15,9 @@ com\fif\vm\employee\ListVM.class
 com\fif\vm\employee\DetailVM.class
 com\fif\entity\EmployeeEntity.class
 com\fif\dto\RegistrationDTO.class
+com\fif\repository\VehicleTypeInterface.class
 com\fif\config\SecurityConfig.class
+com\fif\entity\VehicleTypeEntity.class
 com\fif\repository\ParkingInterface.class
 com\fif\repository\AuthInterface.class
 com\fif\dto\ListEmployeeVehicleDTO.class

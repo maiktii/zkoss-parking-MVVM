@@ -4,7 +4,9 @@ import com.fif.dto.RegistrationDTO;
 import com.fif.entity.EmployeeEntity;
 import com.fif.entity.ParkingEntity;
 import com.fif.entity.VehicleEntity;
+import com.fif.entity.VehicleTypeEntity;
 import com.fif.repository.EmployeeInterface;
+import com.fif.repository.VehicleTypeInterface;
 import org.springframework.stereotype.Service;
 import org.zkoss.zk.ui.Executions;
 
@@ -14,6 +16,7 @@ import java.util.List;
 public class EmployeeService {
 
     private final EmployeeInterface employeeInterface;
+//    private final VehicleTypeInterface vehicleTypeInterface;
     private final ParkingService parkingService;
 
 //    ParkingEntity defaultParking = new ParkingEntity(
@@ -28,6 +31,7 @@ public class EmployeeService {
     public EmployeeService(EmployeeInterface employeeInterface, ParkingService parkingService){
         this.employeeInterface = employeeInterface;
         this.parkingService = parkingService;
+//        this.vehicleTypeInterface = vehicleTypeInterface;
     }
 
     public List<EmployeeEntity> getAllEmployeeData(){
@@ -40,8 +44,11 @@ public class EmployeeService {
             throw new IllegalArgumentException("Employee Number already exists!");
         }
 
+//        VehicleTypeEntity vehicleType = vehicleTypeInterface.findById(dto.getVehicleTypeId())
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid vehicle type"));
+
         VehicleEntity vehicle = new VehicleEntity();
-        vehicle.setVehicleType(dto.getVehicleType());
+        vehicle.setVehicleType(dto.getVehicleType().getName());
         vehicle.setLicensePlate(dto.getLicensePlate());
 
         ParkingEntity parking = parkingService.getParkingById(1L);
@@ -55,7 +62,7 @@ public class EmployeeService {
         employeeInterface.save(employee);
 
         // Occupy slot depending on vehicle type
-        if ("CAR".equalsIgnoreCase(dto.getVehicleType())) {
+        if ("CAR".equalsIgnoreCase(dto.getVehicleType().getName())) {
             parkingService.occupyCarSpot(parking.getId());
         } else {
             parkingService.occupyMotorSpot(parking.getId());

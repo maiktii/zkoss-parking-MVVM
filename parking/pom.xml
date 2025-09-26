@@ -83,6 +83,13 @@
             <version>42.6.0</version>
         </dependency>
 
+        <!-- Data Versioning -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+
         <!-- Spring Security Core -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -196,6 +203,18 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+<!--                <configuration>-->
+<!--                    <url>jdbc:postgresql://localhost:5432/appdb</url>-->
+<!--                    <user>appuser</user>-->
+<!--                    <password>apppass</password>-->
+<!--                </configuration>-->
+            </plugin>
+
         </plugins>
     </build>
 </project>

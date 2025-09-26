@@ -3,9 +3,11 @@ package com.fif.vm.employee;
 import com.fif.dto.RegistrationDTO;
 import com.fif.entity.EmployeeEntity;
 import com.fif.entity.VehicleEntity;
+import com.fif.entity.VehicleTypeEntity;
 import com.fif.repository.EmployeeInterface;
 import com.fif.repository.impl.EmployeeRepository;
 import com.fif.service.EmployeeService;
+import com.fif.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.zkoss.bind.annotation.Command;
@@ -24,7 +26,8 @@ public class RegistrationVM {
     private RegistrationDTO requestCreate;
 
     private EmployeeService employeeService;
-    private List<String> vehicleTypes;
+    private VehicleService vehicleService;
+//    private List<String> vehicleTypes;
 
 //    public RegistrationVM(){
 //
@@ -33,8 +36,9 @@ public class RegistrationVM {
     @Init
     public void init() {
         employeeService = (EmployeeService) SpringUtil.getBean("employeeService");
+        vehicleService = (VehicleService) SpringUtil.getBean("vehicleService");
         requestCreate = new RegistrationDTO(); // 🔥 initialize here
-        vehicleTypes = List.of("CAR", "MOTORCYCLE");
+//        vehicleTypes = List.of("CAR", "MOTORCYCLE");
     }
 
     public RegistrationDTO getRequestCreate() {
@@ -45,8 +49,8 @@ public class RegistrationVM {
         this.requestCreate = requestCreate;
     }
 
-    public List<String> getVehicleTypes() {
-        return vehicleTypes;
+    public List<VehicleTypeEntity> getVehicleTypes() {
+        return vehicleService.getVehicleType();
     }
 
     @Command

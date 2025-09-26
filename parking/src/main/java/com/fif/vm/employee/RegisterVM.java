@@ -1,22 +1,16 @@
 package com.fif.vm.employee;
 
 import com.fif.entity.AuthEntity;
-import com.fif.entity.EmployeeEntity;
-import com.fif.repository.AuthInterface;
-import com.fif.service.EmployeeService;
 import com.fif.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zkplus.spring.SpringUtil;
-import org.zkoss.zul.ListModelList;
 
-import java.util.List;
 
 public class RegisterVM {
     @WireVariable
@@ -69,13 +63,22 @@ public class RegisterVM {
             return;
         }
 
-        AuthEntity newUser = new AuthEntity();
-        newUser.setUsername(username);
-        newUser.setPassword(passwordEncoder.encode(password));
-        newUser.setRole("ROLE_USER");
+        try {
+            AuthEntity newUser = new AuthEntity();
+            newUser.setUsername(username);
+            newUser.setPassword(passwordEncoder.encode(password));
+            newUser.setRole("ROLE_USER");
+            userService.saveUser(newUser);
 
-        userService.saveUser(newUser);
+            Executions.sendRedirect("/pages/login.zul");
+        } catch (DataIntegrityViolationException e) {
+            errorMessage = "Username already exists! (DB constraint)";
+        } catch (Exception e) {
+            errorMessage = "An unexpected error occurred: " + e.getMessage();
+        }
+    }
 
-        Executions.sendRedirect("/pages/login.zul");
+    public void goToRegister(){
+        Executions.sendRedirect("/pages/register.zul");
     }
 }

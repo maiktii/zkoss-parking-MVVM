@@ -9,5 +9,10 @@
 		<value>parking</value>
 	</preference>
 	-->
+
+    <library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>fiftemplate</value>
+    </library-property>
 	
 </zk>

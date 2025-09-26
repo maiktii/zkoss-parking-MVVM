@@ -3,6 +3,7 @@ package com.fif.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "vehicle")
 public class VehicleEntity {
 
     @Id
